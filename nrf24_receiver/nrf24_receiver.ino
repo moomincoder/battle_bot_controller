@@ -259,11 +259,10 @@ void setup() {
   pinMode(IN3_PIN, OUTPUT);
   pinMode(IN4_PIN, OUTPUT);
 
-  ledcSetup(LEFT_PWM_CH, PWM_FREQ, PWM_RES);
-  ledcAttachPin(ENA_PIN, LEFT_PWM_CH);
+  // Attach PWM directly to pins (core 3.x)
+  ledcAttach(ENA_PIN, PWM_FREQ, PWM_RES);
+  ledcAttach(ENB_PIN, PWM_FREQ, PWM_RES);
 
-  ledcSetup(RIGHT_PWM_CH, PWM_FREQ, PWM_RES);
-  ledcAttachPin(ENB_PIN, RIGHT_PWM_CH);
 
   pinMode(LED_PIN, OUTPUT);
   digitalWrite(LED_PIN, LOW);
